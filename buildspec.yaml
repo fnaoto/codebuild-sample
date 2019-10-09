@@ -1,7 +1,8 @@
 version: 0.2 
-runtime-versions:
-  docker: 18
 phases:
+  install:
+    runtime-versions:
+      docker: 18
   build:
     commands:
       - echo ok
