@@ -5,4 +5,5 @@ phases:
       docker: 18
   build:
     commands:
-      - echo ok
+      - echo ${CODEBUILD_WEBHOOK_TRIGGER}
+      - env
