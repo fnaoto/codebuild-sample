@@ -11,7 +11,7 @@ if [ "$#" -ne "3" -a "$#" -ne "4" ]; then
 fi;
 
 if [ "$2" = "release" ]; then
-  if [ "${CODEBUILD_WEBHOOK_TRIGGER:-none}" == "tag/*" ]; then
+  if [ "${CODEBUILD_WEBHOOK_TRIGGER:-none}" == "tag/"* ]; then
     exit 0;
   fi;
 fi;
@@ -23,7 +23,7 @@ if [ "$2" = "merge" ]; then
 fi;
 
 if [ "$2" = "pr" ]; then
-  if [ "${CODEBUILD_WEBHOOK_TRIGGER:-none}" == "pr/*" ]; then
+  if [ "${CODEBUILD_WEBHOOK_TRIGGER:-none}" == "pr/"* ]; then
     exit 0;
   fi;
 fi;
