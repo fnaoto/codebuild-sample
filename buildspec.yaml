@@ -1,9 +1,9 @@
 version: 0.2 
 phases:
-  install:
-    runtime-versions:
-      docker: 18
   build:
     commands:
-      - echo ${CODEBUILD_WEBHOOK_TRIGGER}
       - env
+      - |
+        if trigger is release ?; then
+          notify "<!here> ${CODEBUILD_WEBHOOK_TRIGGER#tag/}"
+        fi
