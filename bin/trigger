@@ -5,7 +5,7 @@ set -x
 #
 # 引数の個数チェック
 #
-if [[ "$#" -ne "3" ]] && [[ "$#" -ne "4" ]; then
+if [[ "$#" -ne "3" && "$#" -ne "4" ]]; then
   echo "\nInvalid arguments\nUsage: trigger is (release|merge [branch]|pr) ? \n";
   exit 1;
 fi;
