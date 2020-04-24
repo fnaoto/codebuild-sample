@@ -4,6 +4,9 @@ phases:
     commands:
       - env
       - |
+        # export bin PATH
+        export PATH=$PATH:$(pwd)/bin/codebuild
+
         if trigger is release ?; then
           notify "<!here> ${CODEBUILD_WEBHOOK_TRIGGER#tag/}"
         fi
