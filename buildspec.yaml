@@ -1,9 +1,5 @@
 version: 0.2 
 
-env:
-  variables:
-    DOCKER_BUILDKIT: "1"
-
 phases:
   build:
     commands:
@@ -12,4 +8,7 @@ phases:
         # export bin PATH
         export PATH=$PATH:$(pwd)/bin
       - |
-        docker run --name test alpine sh -c 'sleep 100'
+        docker build -t app --build-arg rand=$RANDOM .
+        docker run app sh -c 'echo $rand'
+        docker run --name test alpine sh -c 'sleep 1000'
+        docker run app sh -c 'echo $rand'
