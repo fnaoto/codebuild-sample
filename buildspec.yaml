@@ -11,5 +11,5 @@ phases:
           notify "<!here> ${CODEBUILD_WEBHOOK_TRIGGER#tag/}"
         fi
       - |
-        docker run -t test alpine
+        docker run --name test alpine
 
