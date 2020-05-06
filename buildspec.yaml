@@ -1,4 +1,9 @@
 version: 0.2 
+
+env:
+  variables:
+    DOCKER_BUILDKIT: "1"
+
 phases:
   build:
     commands:
@@ -6,7 +11,9 @@ phases:
       - |
         # export bin PATH
         export PATH=$PATH:$(pwd)/bin
+      - |
+        docker build -t app --build-arg rand=$RANDOM .
+        docker run app sh -c 'echo $rand'
+        docker run --name test alpine sh -c 'sleep 120'
+        docker run app sh -c 'echo $rand'
 
-        if trigger is release ?; then
-          notify "<!here> ${CODEBUILD_WEBHOOK_TRIGGER#tag/}"
-        fi
