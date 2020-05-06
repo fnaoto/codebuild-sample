@@ -12,4 +12,3 @@ phases:
         docker run app sh -c 'echo $rand'
         docker run --name test alpine sh -c 'sleep 120'
         docker run app sh -c 'echo $rand'
-
