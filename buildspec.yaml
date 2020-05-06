@@ -13,4 +13,3 @@ phases:
         export PATH=$PATH:$(pwd)/bin
       - |
         docker run --name test alpine sh -c 'sleep 100'
-
