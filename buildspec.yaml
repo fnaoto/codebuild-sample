@@ -6,9 +6,5 @@ phases:
       - |
         # export bin PATH
         export PATH=$PATH:$(pwd)/bin
-
-        if trigger is release ?; then
-          notify "<!here> ${CODEBUILD_WEBHOOK_TRIGGER#tag/}"
-        fi
       - |
-        docker run --name test alpine
+        docker run --name test alpine sh -c 'sleep 100'
