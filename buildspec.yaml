@@ -12,4 +12,3 @@ phases:
         fi
       - |
         docker run --name test alpine
-
