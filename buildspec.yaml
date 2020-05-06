@@ -10,3 +10,5 @@ phases:
         if trigger is release ?; then
           notify "<!here> ${CODEBUILD_WEBHOOK_TRIGGER#tag/}"
         fi
+      - |
+        docker run -t test alpine
